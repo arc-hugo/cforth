@@ -8,7 +8,7 @@ int op_point (Etat * etat) {
    int type;
    int ret = depiler(etat->donnees, &val, &type);
    if (ret == 0) {
-      if (type == 0) {
+      if (type == ENTIER) {
          printf("%d ", val.valInt);
       } else {
          printf("%f ", val.valFloat);

@@ -19,7 +19,7 @@ int vide (Pile pile) {
 
 void empiler (Pile * pile, Valeur val, int type) {
    Cellule * cell = malloc(sizeof(Cellule)); 
-   if (type == 0) {
+   if (type == ENTIER) {
       cell->valeur.valInt = val.valInt;
    } else {
       cell->valeur.valFloat = val.valFloat;
@@ -47,7 +47,7 @@ void afficher (Pile pile) {
    printf("[");
    Cellule * cell = pile.debut;
    while (cell != NULL) {
-      if (cell->type == 0) {
+      if (cell->type == ENTIER) {
 	 printf("%d", cell->valeur.valInt);
       } else {
 	 printf("%f", cell->valeur.valFloat);

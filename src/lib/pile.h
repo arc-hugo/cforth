@@ -1,9 +1,14 @@
 #ifndef PILE_H
 #define PILE_H
 
+#define ENTIER 0
+#define FLOTTANT 1
+#define ADRESSE 2
+
 typedef union Valeur {
    int valInt;
    float valFloat;
+   int adresse;
 } Valeur;
 
 typedef struct Cellule {

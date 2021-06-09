@@ -5,7 +5,7 @@
 
 int op_add (Etat * etat) {
    Valeur val1, val2, valEmp;
-   int type1, type2, typeEmp = 1, ret;
+   int type1, type2, typeEmp = FLOTTANT, ret;
 
    if (etat->donnees->taille <= 1) {
       return 1;
@@ -16,10 +16,10 @@ int op_add (Etat * etat) {
    switch (type1+type2) {
       case 0:
          valEmp.valInt = val1.valInt + val2.valInt;
-         typeEmp = 0;
+         typeEmp = ENTIER;
          break;
       case 1:
-         if (type1 == 1)
+         if (type1 == FLOTTANT)
             valEmp.valFloat = val1.valFloat+val2.valInt;
          else
             valEmp.valFloat = val1.valInt+val2.valFloat;
@@ -35,7 +35,7 @@ int op_add (Etat * etat) {
 
 int op_sub (Etat * etat) {
    Valeur val1, val2, valEmp;
-   int type1, type2, typeEmp = 1, ret;
+   int type1, type2, typeEmp = FLOTTANT, ret;
 
    if (etat->donnees->taille <= 1) {
       return 1;
@@ -46,10 +46,10 @@ int op_sub (Etat * etat) {
    switch (type1+type2) {
       case 0:
          valEmp.valInt = val1.valInt-val2.valInt;
-         typeEmp = 0;
+         typeEmp = ENTIER;
          break;
       case 1:
-         if (type1 == 1)
+         if (type1 == FLOTTANT)
             valEmp.valFloat = val1.valFloat-val2.valInt;
          else
             valEmp.valFloat = val1.valInt-val2.valFloat;
@@ -65,7 +65,7 @@ int op_sub (Etat * etat) {
 
 int op_mul (Etat * etat) {
    Valeur val1, val2, valEmp;
-   int type1, type2, typeEmp = 1, ret;
+   int type1, type2, typeEmp = FLOTTANT, ret;
 
    if (etat->donnees->taille <= 1) {
       return 1;
@@ -76,10 +76,10 @@ int op_mul (Etat * etat) {
    switch (type1+type2) {
       case 0:
          valEmp.valInt = val1.valInt*val2.valInt;
-         typeEmp = 0;
+         typeEmp = ENTIER;
          break;
       case 1:
-         if (type1 == 1)
+         if (type1 == FLOTTANT)
             valEmp.valFloat = val1.valFloat*val2.valInt;
          else
             valEmp.valFloat = val1.valInt*val2.valFloat;
@@ -95,7 +95,7 @@ int op_mul (Etat * etat) {
 
 int op_div (Etat * etat) {
    Valeur val1, val2, valEmp;
-   int type1, type2, typeEmp = 1, ret, entier;
+   int type1, type2, typeEmp = ENTIER, ret, entier;
    float flottant;
 
    if (etat->donnees->taille <= 1) {
@@ -109,12 +109,12 @@ int op_div (Etat * etat) {
          flottant = ((float) val1.valInt)/val2.valInt;
          if (entier == flottant) {
             valEmp.valInt = entier;
-            typeEmp = 0;
+            typeEmp = ENTIER;
          } else
             valEmp.valFloat = flottant;
          break;
       case 1:
-         if (type1 == 1)
+         if (type1 == FLOTTANT)
             valEmp.valFloat = val1.valFloat/val2.valInt;
          else
             valEmp.valFloat = ((float)val1.valInt)/val2.valFloat;

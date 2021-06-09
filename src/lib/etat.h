@@ -14,6 +14,7 @@
 
 typedef struct Etat {
    Pile * donnees;
+   Pile * adresses;
    Programme programme;
    Table * table;
    int mode;

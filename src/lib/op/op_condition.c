@@ -17,7 +17,7 @@ int op_inf (Etat * etat) {
             valEmp.valInt = FALSE;
          break;
       case 1:
-         if (type1 == 1)
+         if (type1 == FLOTTANT)
             if (val1.valFloat < val2.valInt)
                valEmp.valInt = TRUE;
             else
@@ -54,7 +54,7 @@ int op_sup (Etat * etat) {
             valEmp.valInt = FALSE;
          break;
       case 1:
-         if (type1 == 1)
+         if (type1 == FLOTTANT)
             if (val1.valFloat > val2.valInt)
                valEmp.valInt = TRUE;
             else

@@ -23,10 +23,10 @@ void executer (Etat * etat) {
                float flottant = atof(etat->programme.tokens[i]);
                if (entier == flottant){
                   val.valInt = entier;
-                  empiler(etat->donnees, val, 0);
+                  empiler(etat->donnees, val, ENTIER);
                } else {
                   val.valFloat = flottant;
-                  empiler(etat->donnees, val, 1);
+                  empiler(etat->donnees, val, FLOTTANT);
                }
             }
          }
