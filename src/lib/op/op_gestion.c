@@ -2,7 +2,7 @@
 
 #include "op_gestion.h"
 
-int op_dup (Etat * etat) {
+int op_dup (Etat * etat, int *index) {
    Valeur val;
    int type, ret;
 
@@ -17,7 +17,7 @@ int op_dup (Etat * etat) {
    return ret;
 }
 
-int op_drop (Etat * etat) {
+int op_drop (Etat * etat, int *index) {
    Valeur val;
    int type, ret;
 
@@ -30,7 +30,7 @@ int op_drop (Etat * etat) {
    return ret;
 }
 
-int op_swap (Etat * etat) {
+int op_swap (Etat * etat, int *index) {
    if (etat->donnees->taille <= 1) {
       return 1;
    }
@@ -45,7 +45,7 @@ int op_swap (Etat * etat) {
    return ret;
 }
 
-int op_rot (Etat * etat) {
+int op_rot (Etat * etat, int *index) {
    if (etat->donnees->taille <= 2) {
       return 1;
    }

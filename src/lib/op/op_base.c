@@ -3,7 +3,7 @@
 #include "op_base.h"
 
 
-int op_add (Etat * etat) {
+int op_add (Etat * etat, int *index) {
    Valeur val1, val2, valEmp;
    int type1, type2, typeEmp = FLOTTANT, ret;
 
@@ -33,7 +33,7 @@ int op_add (Etat * etat) {
    return ret;
 }
 
-int op_sub (Etat * etat) {
+int op_sub (Etat * etat, int *index) {
    Valeur val1, val2, valEmp;
    int type1, type2, typeEmp = FLOTTANT, ret;
 
@@ -63,7 +63,7 @@ int op_sub (Etat * etat) {
    return ret; 
 }
 
-int op_mul (Etat * etat) {
+int op_mul (Etat * etat, int *index) {
    Valeur val1, val2, valEmp;
    int type1, type2, typeEmp = FLOTTANT, ret;
 
@@ -93,7 +93,7 @@ int op_mul (Etat * etat) {
    return ret; 
 }
 
-int op_div (Etat * etat) {
+int op_div (Etat * etat, int *index) {
    Valeur val1, val2, valEmp;
    int type1, type2, typeEmp = ENTIER, ret, entier;
    float flottant;

@@ -16,7 +16,7 @@ void executer (Etat * etat) {
                strcmp(etat->programme.tokens[i], "THEN") == 0
             ) {
             if (rechercher(*(etat->table), etat->programme.tokens[i], com) == 0) {
-               ret = (*com)(etat);
+               ret = (*com)(etat, &i);
             } else {
                Valeur val;
                int entier = atoi(etat->programme.tokens[i]);

@@ -3,7 +3,7 @@
 
 #include "../etat.h"
 
-int op_inf (Etat * etat) {
+int op_inf (Etat * etat, int *index) {
    Valeur val1, val2, valEmp;
    int type1, type2;
 
@@ -40,7 +40,7 @@ int op_inf (Etat * etat) {
    return ret;
 }
 
-int op_sup (Etat * etat) {
+int op_sup (Etat * etat, int *index) {
    Valeur val1, val2, valEmp;
    int type1, type2;
    
@@ -77,7 +77,7 @@ int op_sup (Etat * etat) {
    return ret;
 }
 
-int op_eq (Etat * etat) {
+int op_eq (Etat * etat, int *index) {
    Valeur val1, val2, valEmp;
    int type1, type2;
    
@@ -105,7 +105,7 @@ int op_eq (Etat * etat) {
    return ret;
 }
 
-int op_if (Etat * etat) {
+int op_if (Etat * etat, int *index) {
    int ret = 0;
    if (etat->mode != IGNORER) {
       Valeur val;
@@ -121,7 +121,7 @@ int op_if (Etat * etat) {
    return ret;
 }
 
-int op_else (Etat * etat) {
+int op_else (Etat * etat, int *index) {
    if (etat->ignorer_if == 0 && etat->mode == IGNORER)
       etat->mode = EXECUTER;
    else
@@ -129,7 +129,7 @@ int op_else (Etat * etat) {
    return 0;
 }
 
-int op_then (Etat * etat) {
+int op_then (Etat * etat, int *index) {
    etat->ignorer_if = 0;
    etat->mode = EXECUTER;
    return 0;

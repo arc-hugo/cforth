@@ -14,7 +14,9 @@ int main (int argc, char * argv[]) {
    
    Etat etat;
 
+   // Initialisation des structures de Forth
    Pile pile = creerPile();
+   Pile adresses = creerPile();
 
    Table table = creerTable();
    initTable(&table);
@@ -22,10 +24,15 @@ int main (int argc, char * argv[]) {
    Programme * programme = lexer(argv[1]);
 
    etat.programme = *programme;
+   etat.adresses = &adresses;
    etat.donnees = &pile;
    etat.table = &table;
+
+   // Mode initial
    etat.mode = EXECUTER;
    etat.ignorer_if = 0;
+
+   // Exécution
    executer(&etat);
 
    return 0;

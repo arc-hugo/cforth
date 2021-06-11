@@ -3,9 +3,9 @@
 
 #include "../etat.h"
 
-int op_add(Etat * etat);
-int op_sub(Etat * etat);
-int op_mul(Etat * etat);
-int op_div(Etat * etat);
+int op_add(Etat * etat, int *index);
+int op_sub(Etat * etat, int *index);
+int op_mul(Etat * etat, int *index);
+int op_div(Etat * etat, int *index);
 
 #endif

@@ -6,7 +6,7 @@
 
 typedef struct Etat Etat;
 
-typedef int (*Commande)(Etat*);
+typedef int (*Commande)(Etat*, int*);
 
 typedef struct Symbole {
    char * tocken;
